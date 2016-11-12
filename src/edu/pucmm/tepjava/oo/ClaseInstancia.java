@@ -11,7 +11,9 @@ package edu.pucmm.tepjava.oo;
  */
 public class ClaseInstancia {
 
+    // Es de instancia.
     String propiedadInstancia;
+    //Cuando utilizo static, vuelvo una propiedad de clase.
     static String propiedadClase;
     
     public static void main(String[] args) {
