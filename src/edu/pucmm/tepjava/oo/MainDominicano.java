@@ -56,5 +56,7 @@ public class MainDominicano {
         Dominicano clariza = new Dominicano("Clariza", "X23234", "20/05/1984");
         System.out.println("Nombre: "+clariza.nombre);
         
+        
+        
     }
 }
