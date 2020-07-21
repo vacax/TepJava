@@ -5,18 +5,27 @@
  */
 package edu.pucmm.tepjava.interfase.paisb;
 
+import edu.pucmm.tepjava.interfase.paisa.CiudadanoA;
+import edu.pucmm.tepjava.interfase.paisa.IMilitar;
+
 /**
  *
  * @author vacax
  */
-public class Militar {
-    String nombre;
+public class Militar extends CiudadanoA implements IMilitar{
 
     public Militar(String nombre) {
-        this.nombre = nombre;
+        super(nombre);
+    }
+
+    @Override
+    public void pelear() {
+        System.out.println(""+nombre+", peleando....");
+    }
+    @Override
+    public void accion() {
+        System.out.println(nombre+" Trotando");
     }
     
-    public void pelear(){
-        System.out.println(""+nombre+", peleando...");
-    }
+    
 }

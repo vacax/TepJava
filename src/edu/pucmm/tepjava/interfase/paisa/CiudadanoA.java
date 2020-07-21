@@ -9,28 +9,14 @@ package edu.pucmm.tepjava.interfase.paisa;
  *
  * @author vacax
  */
-public class CiudadanoA implements ITrabajador, ICientifico, IMilitar{
+public class CiudadanoA{
     
-    String nombre;
+    protected String nombre;
 
     public CiudadanoA(String nombre) {
         this.nombre = nombre;
+    } 
+    public void accion(){
+        System.out.println(nombre+" Caminando");
     }
-
-    @Override
-    public void trabajar() {
-        System.out.println(""+nombre+", trabajando....");
-    }
-
-    @Override
-    public void pensar() {
-        System.out.println(""+nombre+", pensando....");
-    }
-
-    @Override
-    public void pelear() {
-        System.out.println(""+nombre+", peleando....");
-    }   
-    
-    
 }
