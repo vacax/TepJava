@@ -5,20 +5,25 @@
  */
 package edu.pucmm.tepjava.interfase.paisb;
 
+import edu.pucmm.tepjava.interfase.paisa.CiudadanoA;
+import edu.pucmm.tepjava.interfase.paisa.ICientifico;
+
 /**
  *
  * @author vacax
  */
-public class Cientifico {
-    
-    String nombre;
+public class Cientifico extends CiudadanoA implements ICientifico{
 
     public Cientifico(String nombre) {
-        this.nombre = nombre;
+        super(nombre);
     }
     
-    public void pensando(){
-        System.out.println(""+nombre+", pensando...");
+    @Override
+    public void pensar() {
+        System.out.println(""+nombre+", pensando....");
     }
-    
+    @Override
+    public void accion() {
+        System.out.println(nombre+" Sentado");
+    }
 }

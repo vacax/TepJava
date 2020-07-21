@@ -5,19 +5,26 @@
  */
 package edu.pucmm.tepjava.interfase.paisb;
 
+import edu.pucmm.tepjava.interfase.paisa.CiudadanoA;
+import edu.pucmm.tepjava.interfase.paisa.ITrabajador;
+
 /**
  *
  * @author vacax
  */
-public class Trabajador {
-    
-    String nombre;
-    
-    public Trabajador(String nombre){
-        this.nombre = nombre;
+public class Trabajador extends CiudadanoA implements ITrabajador{
+
+    public Trabajador(String nombre) {
+        super(nombre);
+    }
+
+    @Override
+    public void trabajar() {
+        System.out.println(""+nombre+", trabajando....");
+    }
+    @Override
+    public void accion() {
+        System.out.println(nombre+" Revisando");
     }
     
-    public void trabajar(){
-        System.out.println(""+nombre+", trabajando");
-    }
 }

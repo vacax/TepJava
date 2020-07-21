@@ -22,25 +22,38 @@ public class GuerraMain {
     public static void main(String[] args) {
         
         //Pais B
+        List<CiudadanoA> listaPaisB = new ArrayList<>();
         Militar militarB = new Militar("Militar B");
         Cientifico cientificoB = new Cientifico("Cientifico B");
         Trabajador trabajadorB = new Trabajador("Trabajo B");
+        listaPaisB.add(militarB);
+        listaPaisB.add(cientificoB);
+        listaPaisB.add(trabajadorB);
         
         //Pais A
-        CiudadanoA ciudadanoA1=new CiudadanoA("Ciudadano 1");
-        CiudadanoA ciudadanoA2=new CiudadanoA("Ciudadano 2");
-        CiudadanoA ciudadanoA3=new CiudadanoA("Ciudadano 3");
-        
+        List<CiudadanoA> listaPaisA = new ArrayList<>();
+        CiudadanoA ciudadanoA1=new Militar("Ciudadano 1");
+        CiudadanoA ciudadanoA2=new Cientifico("Ciudadano 2");
+        CiudadanoA ciudadanoA3=new Trabajador("Ciudadano 3");
+        CiudadanoA ciudadanoA4=new CiudadanoA("Ciudadano 4");
+        listaPaisA.add(ciudadanoA1);
+        listaPaisA.add(ciudadanoA2);
+        listaPaisA.add(ciudadanoA3);
+        listaPaisA.add(ciudadanoA4);
+
         //guerra.
         List<Militar> listaMilitarPaisB = new ArrayList<>();
-        listaMilitarPaisB.add(militarB); //incluyendo en al colecciÃ³n...
+        listaMilitarPaisB.add(militarB); //incluyendo en al colección...
         //listaMilitarPaisB.add(cientificoB);
         
-        List<IMilitar> listaMilitarPaisA = new ArrayList<>();
-        listaMilitarPaisA.add(ciudadanoA1); //Polimorfismo...
-        listaMilitarPaisA.add(ciudadanoA2);
-        listaMilitarPaisA.add(ciudadanoA3);
-        
+        List<Militar> listaMilitarPaisA = new ArrayList<>();
+        for(CiudadanoA ciudadano: listaPaisA){
+            if(ciudadano instanceof Militar)
+                 listaMilitarPaisA.add((Militar) ciudadano);
+        }
+        for(CiudadanoA ciudadano: listaPaisA){
+            ciudadano.accion();
+        }
         peleaMilitares(listaMilitarPaisA, listaMilitarPaisB);
         
     }
@@ -50,10 +63,10 @@ public class GuerraMain {
      * @param listaMilitarPaisA
      * @param listaMilitarPaisB 
      */
-    public static void peleaMilitares(List<IMilitar> listaMilitarPaisA,
+    public static void peleaMilitares(List<Militar> listaMilitarPaisA,
             List<Militar> listaMilitarPaisB){
         
-        System.out.println("Guerra entre PaÃ­s A y PaÃ­s B");
+        System.out.println("Guerra entre País A y País B");
         int militaresA = listaMilitarPaisA.size();
         int militaresB = listaMilitarPaisB.size();
         System.out.println("La cantidad de militares en A: "+militaresA);
@@ -67,12 +80,11 @@ public class GuerraMain {
         }
         
         if(militaresA > militaresB){
-            System.out.println("Gano PaÃ­s A");
+            System.out.println("Gano País A");
         }else if(militaresA == militaresB){
             System.out.println("Empate...");
         } else{
-            System.out.println("Gano PaÃ­s B");
+            System.out.println("Gano País B");
         }
     }
-
 }
